@@ -95,11 +95,11 @@ st.subheader('Raw data')
 def tsplot(t0, strain, cropstart, cropend):
 
     center = int(t0)
-    strain_ = deepcopy(strain).crop(center-16, center+16) #Q: deepcopy used here, because I assume that mutation across graphs isn't the intent. Is that correct?
-    return strain_.crop(cropstart, cropend)
+    strain_ = deepcopy(strain).crop(croptstart, cropend) #Q: deepcopy used here, because I assume that mutation across graphs isn't the intent. Is that correct?
+    tsplot_plt = strain_.plot()
+    return(tsplot_plt)
 
-tsplot_plt = deepcopy(tsplot(t0, strain, cropstart, cropend)).plot()
-st.pyplot(tsplot_plt, clear_figure=True)
+st.pyplot(tsplot(t0, strain, cropstart, cropend), clear_figure=True)
 
 
 
